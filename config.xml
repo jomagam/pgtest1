@@ -18,10 +18,11 @@
     </author>
 
     <preference name="orientation" value="portrait" />
+    <preference name="permissions" value="none"/>
 
     <gap:platform name="android" />
 
-    <icon src="icon.png" />
+    <icon src="icon.png"/>
 
 </widget>
 
