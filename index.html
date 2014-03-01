@@ -12,6 +12,8 @@
 
 	// Set the event listener to run 
 	// when the device is ready
+
+	accElement.innerHTML = 'SETING deviceready';
    	document.addEventListener("deviceready", onDeviceReady, false);
 
 	var accElement = document.getElementById('accelerometerData');
@@ -53,11 +55,6 @@
 
 	<div id="accelerometerData">Obtaining data...</div>
 	
-	<script type="text/javascript">
-	alert('ALERT');
-	</script>
-
-
 	<div id="foo"></div>
 	<script type="text/javascript" src="foo.js"></script>
 
