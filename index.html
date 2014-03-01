@@ -6,6 +6,25 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
+    // Run after successful transaction
+    // Let's display the accelerometer data
+    function onSuccess(acceleration) {
+	    var accElement = document.getElementById('accelerometerData');
+		    
+	    accElement.innerHTML	=	
+		    'Acceleration X: ' + acceleration.x + '<br />' +
+	  'Acceleration Y: ' + acceleration.y + '<br />' +
+		    'Acceleration Z: ' + acceleration.z + '<br />' +
+		    'Timestamp: '      + acceleration.timestamp;
+    }
+
+    // Run if we face an error 
+    // obtaining the accelerometer data
+    function onError(error) {
+	    // Handle any errors we may face
+	    alert(JSON.stringify(error));
+    }
+
     // Wait for device API libraries to load
     //
     function onLoad() {
@@ -25,28 +44,9 @@
         alert('onDeviceReady2');
     }
 
-    // Run after successful transaction
-    // Let's display the accelerometer data
-    function onSuccess(acceleration) {
-	    var accElement = document.getElementById('accelerometerData');
-		    
-	    accElement.innerHTML	=	
-		    'Acceleration X: ' + acceleration.x + '<br />' +
-	  'Acceleration Y: ' + acceleration.y + '<br />' +
-		    'Acceleration Z: ' + acceleration.z + '<br />' +
-		    'Timestamp: '      + acceleration.timestamp;
-    }
-
-    // Run if we face an error 
-    // obtaining the accelerometer data
-    function onError(error) {
-	    // Handle any errors we may face
-	    alert(JSON.stringify(error));
-    }
     </script>
   </head>
   <body onload="onLoad()">
-  BALAZS
 	<div id="accelerometerData">Obtaining data...</div>
   </body>
 </html>
