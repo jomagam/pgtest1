@@ -3,7 +3,7 @@
         xmlns:gap   = "http://phonegap.com/ns/1.0"
         id          = "com.balazssoft.example"
         versionCode = "10" 
-        version     = "1.0.2" >
+        version     = "1.0.3" >
 
     <!-- versionCode is optional and Android only -->
 
@@ -17,7 +17,9 @@
         Balazs Rau
     </author>
 
+    <!--
     <preference name="orientation" value="portrait" />
+    -->
     <preference name="permissions" value="none"/>
 
     <gap:platform name="android" />
