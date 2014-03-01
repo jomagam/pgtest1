@@ -16,13 +16,17 @@
 	accElement.innerHTML = 'SETING deviceready';
    	document.addEventListener("deviceready", onDeviceReady, false);
 
-	var accElement = document.getElementById('accelerometerData');
 	
 	// The device is ready so let's 
 	// obtain the current accelerometer data
 	function onDeviceReady() {
+	    var accElement = document.getElementById('accelerometerData');
 	    accElement.innerHTML = 'READY';
 	    navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	}
+
+	function foo2() {
+	alert('FUN');
 	}
 
 
@@ -30,6 +34,7 @@
 	// Let's display the accelerometer data
 	function onSuccess(acceleration) {
 			
+		var accElement = document.getElementById('accelerometerData');
 		accElement.innerHTML	=	
 			'Acceleration X: ' + acceleration.x + '<br />' +
 		        'Acceleration Y: ' + acceleration.y + '<br />' +
@@ -57,6 +62,8 @@
 	
 	<div id="foo"></div>
 	<script type="text/javascript" src="foo.js"></script>
+
+	<script type="text/javascript">onDeviceReady()</script>
 
 </body>
 </html>
