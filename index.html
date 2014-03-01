@@ -16,9 +16,11 @@
     //
     function onDeviceReady() {
         alert('onDeviceReady');
-//	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+
 	var accElement = document.getElementById('accelerometerData');
 	accElement.innerHTML = 'MAYBE NOT';
+
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 
         alert('onDeviceReady2');
     }
