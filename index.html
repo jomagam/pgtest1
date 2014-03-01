@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Device Ready Example</title>
+    <title>Accelerometer Data</title>
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
@@ -9,8 +9,28 @@
 	document.addEventListener("deviceready", onDeviceReady, false);
     }
 
-    function onDeviceReady(){
-	alert('123');
+    // The device is ready so let's 
+    // obtain the current accelerometer data
+    function onDeviceReady() {
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+    }
+
+    // Run after successful transaction
+    // Let's display the accelerometer data
+    function onSuccess(acceleration) {
+	    var accElement = document.getElementById('accelerometerData');
+	    accElement.innerHTML	=	
+		    'Acceleration X: ' + acceleration.x + '<br />' +
+		    'Acceleration Y: ' + acceleration.y + '<br />' +
+		    'Acceleration Z: ' + acceleration.z + '<br />' +
+		    'Timestamp: '      + acceleration.timestamp;
+    }
+
+    // Run if we face an error 
+    // obtaining the accelerometer data
+    function onError(error) {
+	    var accElement = document.getElementById('accelerometerData');
+	    accElement.innerHTML = 'FAIL' + JSON.stringify(error);
     }
 </script>
 </head>
