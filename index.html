@@ -33,6 +33,8 @@
 	// Run after successful transaction
 	// Let's display the accelerometer data
 	function onSuccess(acceleration) {
+		var accElement = document.getElementById('accelerometerData');
+		accElement.innerHTML = 'SUCCESS';
 			
 		var accElement = document.getElementById('accelerometerData');
 		accElement.innerHTML	=	
@@ -45,6 +47,8 @@
 	// Run if we face an error 
 	// obtaining the accelerometer data
 	function onError(error) {
+		var accElement = document.getElementById('accelerometerData');
+		accElement.innerHTML = 'FAIL';
 		// Handle any errors we may face
 		alert(JSON.stringify(error));
 	}
