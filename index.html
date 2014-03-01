@@ -12,6 +12,7 @@
     // The device is ready so let's 
     // obtain the current accelerometer data
     function onDeviceReady() {
+	alert('FOO');
 	var accElement = document.getElementById('accelerometerData');
 	accElement.innerHTML = 'onDeviceReady!!!';:
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
