@@ -19,8 +19,8 @@
 
     <!--
     <preference name="orientation" value="portrait" />
-    -->
     <preference name="permissions" value="none"/>
+    -->
 
     <gap:platform name="android" />
 
