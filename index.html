@@ -1,46 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Accelerometer Data</title>
+  <head>
+    <title>Device Ready Example</title>
+
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
+    // Wait for device API libraries to load
+    //
     function onLoad() {
-	document.addEventListener("deviceready", onDeviceReady, false);
+        document.addEventListener("deviceready", onDeviceReady, false);
     }
 
-    // The device is ready so let's 
-    // obtain the current accelerometer data
+    // device APIs are available
+    //
     function onDeviceReady() {
-	alert('FOO');
-	var accElement = document.getElementById('accelerometerData');
-	accElement.innerHTML = 'onDeviceReady!!!';:
-	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+        // Now safe to use device APIs
+	var accElement = document.getElementById('foo');
+	foo.innerHTML = 'BALAZSSSSS';
     }
 
-    // Run after successful transaction
-    // Let's display the accelerometer data
-    function onSuccess(acceleration) {
-	    var accElement = document.getElementById('accelerometerData');
-	    accElement.innerHTML	=	
-		    'Acceleration X: ' + acceleration.x + '<br />' +
-		    'Acceleration Y: ' + acceleration.y + '<br />' +
-		    'Acceleration Z: ' + acceleration.z + '<br />' +
-		    'Timestamp: '      + acceleration.timestamp;
-    }
-
-    // Run if we face an error 
-    // obtaining the accelerometer data
-    function onError(error) {
-	    var accElement = document.getElementById('accelerometerData');
-	    accElement.innerHTML = 'FAIL' + JSON.stringify(error);
-    }
-</script>
-</head>
-
-<body onload="onLoad()">
-	<div id="accelerometerData">Obtaining data...</div>
+    </script>
+  </head>
+  <body onload="onLoad()">
 	<div id="foo"></div>
-	<script type="text/javascript" src="foo.js"></script>
-</body>
+  </body>
 </html>
