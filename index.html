@@ -16,7 +16,9 @@
     //
     function onDeviceReady() {
         alert('onDeviceReady');
-	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+//	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	var accElement = document.getElementById('accelerometerData');
+	accElement.innerHTML = 'MAYBE NOT';
 
         alert('onDeviceReady2');
     }
@@ -24,8 +26,7 @@
     // Run after successful transaction
     // Let's display the accelerometer data
     function onSuccess(acceleration) {
-	    var accElement = 
-		    document.getElementById('accelerometerData');
+	    var accElement = document.getElementById('accelerometerData');
 		    
 	    accElement.innerHTML	=	
 		    'Acceleration X: ' + acceleration.x + '<br />' +
