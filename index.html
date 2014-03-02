@@ -38,7 +38,11 @@
 	var accElement = document.getElementById('geolocation');
 	accElement.innerHTML = 'MAYBE NOT';
 
-	navigator.geolocation.getCurrentPosition(onSuccess, onError);
+	var po = new PositionOptions;
+
+	po.timeout = 1000;
+
+	navigator.geolocation.getCurrentPosition(onSuccess, onError, po);
 
         alert('onDeviceReady2');
     }
