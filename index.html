@@ -3,25 +3,26 @@
   <head>
     <title>Device Ready Example</title>
 
-    <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    function onSuccess(position) {
-	alert('onSuccess');
-	var element = document.getElementById('geolocation');
-        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
-                            'Longitude: '          + position.coords.longitude             + '<br />' +
-                            'Altitude: '           + position.coords.altitude              + '<br />' +
-                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
-                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
-                            'Heading: '            + position.coords.heading               + '<br />' +
-                            'Speed: '              + position.coords.speed                 + '<br />' +
-                            'Timestamp: '          + position.timestamp                    + '<br />';
+    // Run after successful transaction
+    // Let's display the accelerometer data
+    function onSuccess(acceleration) {
+	    var accElement = document.getElementById('accelerometerData');
+		    
+	    accElement.innerHTML	=	
+		    'Acceleration X: ' + acceleration.x + '<br />' +
+	  'Acceleration Y: ' + acceleration.y + '<br />' +
+		    'Acceleration Z: ' + acceleration.z + '<br />' +
+		    'Timestamp: '      + acceleration.timestamp;
     }
 
+    // Run if we face an error 
+    // obtaining the accelerometer data
     function onError(error) {
-	alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
+	    // Handle any errors we may face
+	    alert(JSON.stringify(error));
     }
 
     // Wait for device API libraries to load
@@ -35,14 +36,10 @@
     function onDeviceReady() {
         alert('onDeviceReady');
 
-	var accElement = document.getElementById('geolocation');
+	var accElement = document.getElementById('accelerometerData');
 	accElement.innerHTML = 'MAYBE NOT';
 
-	var po = new PositionOptions();
-
-	po.timeout = 1000;
-
-	navigator.geolocation.getCurrentPosition(onSuccess, onError, po);
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 
         alert('onDeviceReady2');
     }
@@ -50,6 +47,6 @@
     </script>
   </head>
   <body onload="onLoad()">
-	<div id="geolocation">Obtaining data...</div>
+	<div id="accelerometerData">Obtaining data...</div>
   </body>
 </html>
