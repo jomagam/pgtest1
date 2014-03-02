@@ -23,6 +23,7 @@
     <gap:platform name="android" />
 
     <icon src="icon.png"/>
+    <gap:plugin name="org.apache.cordova.device-motion" />
 
 <!--    
     <feature name="Accelerometer">
