@@ -34,7 +34,7 @@
     function onDeviceReady() {
         alert('onDeviceReady');
 
-	var accElement = document.getElementById('accelerometerData');
+	var accElement = document.getElementById('geolocation');
 	accElement.innerHTML = 'MAYBE NOT';
 
 	navigator.geolocation.getCurrentPosition(onSuccess, onError);
