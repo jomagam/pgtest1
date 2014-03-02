@@ -6,23 +6,21 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
-    // Run after successful transaction
-    // Let's display the accelerometer data
     function onSuccess(acceleration) {
-	    var accElement = document.getElementById('accelerometerData');
-		    
-	    accElement.innerHTML	=	
-		    'Acceleration X: ' + acceleration.x + '<br />' +
-	  'Acceleration Y: ' + acceleration.y + '<br />' +
-		    'Acceleration Z: ' + acceleration.z + '<br />' +
-		    'Timestamp: '      + acceleration.timestamp;
+	var element = document.getElementById('geolocation');
+        element.innerHTML = 'Latitude: '           + position.coords.latitude              + '<br />' +
+                            'Longitude: '          + position.coords.longitude             + '<br />' +
+                            'Altitude: '           + position.coords.altitude              + '<br />' +
+                            'Accuracy: '           + position.coords.accuracy              + '<br />' +
+                            'Altitude Accuracy: '  + position.coords.altitudeAccuracy      + '<br />' +
+                            'Heading: '            + position.coords.heading               + '<br />' +
+                            'Speed: '              + position.coords.speed                 + '<br />' +
+                            'Timestamp: '          + position.timestamp                    + '<br />';
     }
 
-    // Run if we face an error 
-    // obtaining the accelerometer data
     function onError(error) {
-	    // Handle any errors we may face
-	    alert(JSON.stringify(error));
+	alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
     }
 
     // Wait for device API libraries to load
@@ -39,7 +37,7 @@
 	var accElement = document.getElementById('accelerometerData');
 	accElement.innerHTML = 'MAYBE NOT';
 
-	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
         alert('onDeviceReady2');
     }
@@ -47,6 +45,6 @@
     </script>
   </head>
   <body onload="onLoad()">
-	<div id="accelerometerData">Obtaining data...</div>
+	<div id="geolocation">Obtaining data...</div>
   </body>
 </html>
