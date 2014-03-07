@@ -19,7 +19,13 @@
     function onDeviceReady() {
 	alert('onDeviceReady1');
 	x$('#adiv').html('XUI ROCKS');
-//	document.getElementById('adiv').innerHTML = 'OVER';
+
+	x$('#balazs').xhr('http://ec2-23-21-10-193.compute-1.amazonaws.com/balazs.html' 
+	{ async: true,
+	  headers:{ 
+	      'Mobile':'true'
+	  }
+	});
 	alert('onDeviceReady2');
     }
 
@@ -27,5 +33,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="adiv">Original</div>
+	<div id="balazs">EMPTY</div>
   </body>
 </html>
