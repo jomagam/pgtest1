@@ -20,6 +20,12 @@
 	alert('onDeviceReady1');
 	x$('#adiv').html('XUI ROCKS');
 
+	x$('#balazs').xhr('http://ec2-23-21-10-193.compute-1.amazonaws.com/balazs.html', 
+	{ async: true,
+	  headers:{ 
+	      'Mobile':'true'
+	  }
+	});
 	alert('onDeviceReady2');
     }
 
