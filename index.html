@@ -13,7 +13,7 @@
 		    
 	    accElement.innerHTML	=	
 		    'Acceleration X: ' + acceleration.x + '<br />' +
-	  'Acceleration Y: ' + acceleration.y + '<br />' +
+	  	    'Acceleration Y: ' + acceleration.y + '<br />' +
 		    'Acceleration Z: ' + acceleration.z + '<br />' +
 		    'Timestamp: '      + acceleration.timestamp;
     }
@@ -34,14 +34,8 @@
     // device APIs are available
     //
     function onDeviceReady() {
-        alert('onDeviceReady');
-
 	var accElement = document.getElementById('accelerometerData');
-	accElement.innerHTML = 'MAYBE NOT';
-
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-
-        alert('onDeviceReady2');
     }
 
     </script>
