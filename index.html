@@ -11,14 +11,17 @@
     // Wait for device API libraries to load
     //
     function onLoad() {
+	alert('ONLOAD1');
         document.addEventListener("deviceready", onDeviceReady, false);
+	alert('ONLOAD2');
     }
 
     // device APIs are available
     //
     function onDeviceReady() {
-	alert('1');
+	alert('onDeviceReady1');
 	x$.('#adiv').html('XUI ROCKS');
+	alert('onDeviceReady2');
     }
 
     </script>
