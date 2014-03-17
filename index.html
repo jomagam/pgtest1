@@ -36,6 +36,8 @@
     function onDeviceReady() {
 
 	navigator.splashscreen.show();
+    }
+    function foo(){
 
 	var accElement = document.getElementById('accelerometerData');
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
