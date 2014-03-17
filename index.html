@@ -4,50 +4,43 @@
     <title>Device Ready Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
-    <script type="text/javascript" src="xui.js"></script>
-
     <script type="text/javascript" charset="utf-8">
+
+    // Run after successful transaction
+    // Let's display the accelerometer data
+    function onSuccess(acceleration) {
+	    var accElement = document.getElementById('accelerometerData');
+		    
+	    accElement.innerHTML	=	
+		    'Acceleration X: ' + acceleration.x + '<br />' +
+	  	    'Acceleration Y: ' + acceleration.y + '<br />' +
+		    'Acceleration Z: ' + acceleration.z + '<br />' +
+		    'Timestamp: '      + acceleration.timestamp;
+    }
+
+    // Run if we face an error 
+    // obtaining the accelerometer data
+    function onError(error) {
+	    // Handle any errors we may face
+	    alert(JSON.stringify(error));
+    }
 
     // Wait for device API libraries to load
     //
     function onLoad() {
-//	alert('ONLOAD1');
         document.addEventListener("deviceready", onDeviceReady, false);
-//	alert('ONLOAD2');
     }
 
+    // device APIs are available
+    //
     function onDeviceReady() {
-//	alert('onDeviceReady1');
-	x$('#adiv').html('XUI ROCKS');
-
-	var element = document.getElementById('deviceProperties');
-
-	element.innerHTML = 'NOW';
-
-	var d = window.device;
-	alert('onDeviceReady2');
-
-        element.innerHTML = 'Device Name: '     + d.name     + '<br />' + 
-                            'Device PhoneGap: ' + d.phonegap + '<br />' + 
-                            'Device Platform: ' + d.platform + '<br />' + 
-                            'Device UUID: '     + d.uuid     + '<br />' + 
-                            'Device Version: '  + d.version  + '<br />';
-
-
-	x$('#balazs').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/b.cgi', 
-	{ async: true,
-	  headers:{ 
-	      'Mobile':'true'
-	  }
-	});
-
+	var accElement = document.getElementById('accelerometerData');
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
     }
 
     </script>
   </head>
   <body onload="onLoad()">
-	<div id="adiv">Original</div>
-	<div id="balazs">EMPTY</div>
-	<div id="deviceProperties">Loading device properties...</p>
+	<div id="accelerometerData">Obtaining data...</div>
   </body>
 </html>
