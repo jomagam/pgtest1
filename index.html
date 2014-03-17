@@ -45,10 +45,9 @@
 
 	element.innerHTML = 'NOW';
 
-	var d = window.device;
-	alert('loadDeviceProperties22');
+	alert('loadDeviceProperties22 device:' + device);
 
-	var vv = d.uuid;
+	var vv = device.uuid;
 	alert('loadDeviceProperties33');
         element.innerHTML = 'Device Name: '     + d.name     + '<br />' + 
                             'Device PhoneGap: ' + d.phonegap + '<br />' + 
