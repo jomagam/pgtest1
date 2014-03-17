@@ -36,11 +36,30 @@
     function onDeviceReady() {
 	var accElement = document.getElementById('accelerometerData');
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	loadDeviceProperties();
+    }
+
+    function loadDeviceProperties() {
+	alert('loadDeviceProperties1');
+	var element = document.getElementById('deviceProperties');
+
+	element.innerHTML = 'NOW';
+
+	var d = window.device;
+	alert('loadDeviceProperties2');
+
+        element.innerHTML = 'Device Name: '     + d.name     + '<br />' + 
+                            'Device PhoneGap: ' + d.phonegap + '<br />' + 
+                            'Device Platform: ' + d.platform + '<br />' + 
+                            'Device UUID: '     + d.uuid     + '<br />' + 
+                            'Device Version: '  + d.version  + '<br />';
+	alert('loadDeviceProperties3');
     }
 
     </script>
   </head>
   <body onload="onLoad()">
 	<div id="accelerometerData">Obtaining data...</div>
+	<div id="deviceProperties">Loading device properties...</p>
   </body>
 </html>
