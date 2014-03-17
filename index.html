@@ -40,22 +40,16 @@
     }
 
     function loadDeviceProperties() {
-	alert('loadDeviceProperties1');
 	var element = document.getElementById('deviceProperties');
 
 	element.innerHTML = 'NOW';
 
-	alert('loadDeviceProperties22 device:');
-
 	var vv = device.uuid;
-	alert('loadDeviceProperties33');
         element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                            'Device PhoneGap: ' + device.phonegap + '<br />' + 
-                            'Device Cordova: '  + device.cordova + '<br />' + 
+                            'Device Cordova: '  + device.cordova  + '<br />' + 
                             'Device Platform: ' + device.platform + '<br />' + 
                             'Device UUID: '     + device.uuid     + '<br />' + 
                             'Device Version: '  + device.version  + '<br />';
-	alert('loadDeviceProperties4');
     }
 
     </script>
