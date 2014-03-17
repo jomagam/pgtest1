@@ -23,7 +23,7 @@
     <gap:platform name="android" />
 
     <icon src="icon.png"/>
-
+    <gap:plugin name="com.vliesaputra.deviceinformation" />
 <!--    
     <gap:plugin name="org.apache.cordova.device-motion" />
 
