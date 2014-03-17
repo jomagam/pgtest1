@@ -20,13 +20,6 @@
 //	alert('onDeviceReady1');
 	x$('#adiv').html('XUI ROCKS');
 
-	x$('#balazs').xhr('http://ec2-23-21-10-193.compute-1.amazonaws.com/cgi-bin/b.cgi', 
-	{ async: true,
-	  headers:{ 
-	      'Mobile':'true'
-	  }
-	});
-
 	var element = document.getElementById('deviceProperties');
 
         element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
@@ -34,6 +27,14 @@
                             'Device Platform: ' + device.platform + '<br />' + 
                             'Device UUID: '     + device.uuid     + '<br />' + 
                             'Device Version: '  + device.version  + '<br />';
+
+	x$('#balazs').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/b.cgi', 
+	{ async: true,
+	  headers:{ 
+	      'Mobile':'true'
+	  }
+	});
+
 //	alert('onDeviceReady2');
     }
 
