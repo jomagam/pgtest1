@@ -24,8 +24,8 @@
 
     <icon src="icon.png"/>
     <gap:plugin name="com.vliesaputra.deviceinformation" />
-<!--    
     <gap:plugin name="org.apache.cordova.device-motion" />
+<!--    
 
     <feature name="Accelerometer">
         <param name="android-package" value="org.apache.cordova.devicemotion.AccelListener" />
