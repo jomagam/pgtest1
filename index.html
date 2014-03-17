@@ -22,13 +22,15 @@
 
 	var element = document.getElementById('deviceProperties');
 
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                            'Device PhoneGap: ' + device.phonegap + '<br />' + 
-                            'Device Platform: ' + device.platform + '<br />' + 
-                            'Device UUID: '     + device.uuid     + '<br />' + 
-                            'Device Version: '  + device.version  + '<br />';
-
+	var d = window.device;
 	alert('onDeviceReady2');
+
+        element.innerHTML = 'Device Name: '     + d.name     + '<br />' + 
+                            'Device PhoneGap: ' + d.phonegap + '<br />' + 
+                            'Device Platform: ' + d.platform + '<br />' + 
+                            'Device UUID: '     + d.uuid     + '<br />' + 
+                            'Device Version: '  + d.version  + '<br />';
+
 
 	x$('#balazs').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/b.cgi', 
 	{ async: true,
