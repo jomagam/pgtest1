@@ -25,6 +25,10 @@
     <icon src="icon.png"/>
     <gap:plugin name="com.vliesaputra.deviceinformation" />
     <gap:plugin name="org.apache.cordova.device-motion" />
+
+    <feature name="Device">
+	<param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
 <!--    
 
     <feature name="Accelerometer">
