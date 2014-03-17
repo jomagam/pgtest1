@@ -28,6 +28,7 @@
 
     
     <gap:plugin name="org.apache.cordova.splashscreen" />
+    <preference name="splashscreen" value="splash" />
     <preference name="splashScreenDelay" value="1000" />
 
     <feature name="Device">
