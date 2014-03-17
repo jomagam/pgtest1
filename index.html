@@ -21,13 +21,14 @@
 	x$('#adiv').html('XUI ROCKS');
 
 	var element = document.getElementById('deviceProperties');
-	alert('onDeviceReady2');
 
         element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
                             'Device PhoneGap: ' + device.phonegap + '<br />' + 
                             'Device Platform: ' + device.platform + '<br />' + 
                             'Device UUID: '     + device.uuid     + '<br />' + 
                             'Device Version: '  + device.version  + '<br />';
+
+	alert('onDeviceReady2');
 
 	x$('#balazs').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/b.cgi', 
 	{ async: true,
