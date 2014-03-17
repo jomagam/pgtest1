@@ -34,6 +34,9 @@
     // device APIs are available
     //
     function onDeviceReady() {
+
+	navigator.splashscreen.show();
+
 	var accElement = document.getElementById('accelerometerData');
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 	loadDeviceProperties();
