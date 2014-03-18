@@ -34,15 +34,10 @@
     // device APIs are available
     //
     function onDeviceReady() {
-
-	navigator.splashscreen.show();
-	alert(1);
-    }
-    function foo(){
-
 	var accElement = document.getElementById('accelerometerData');
 	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
 	loadDeviceProperties();
+	displayNetworkStatus();
     }
 
     function loadDeviceProperties() {
@@ -50,7 +45,6 @@
 
 	element.innerHTML = 'NOW';
 
-	var vv = device.uuid;
         element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
                             'Device Cordova: '  + device.cordova  + '<br />' + 
                             'Device Platform: ' + device.platform + '<br />' + 
@@ -58,10 +52,28 @@
                             'Device Version: '  + device.version  + '<br />';
     }
 
+    function displayNetworkStatus(){
+	var networkState = navigator.connection.type;
+
+	var states = {};
+	states[Connection.UNKNOWN]  = 'Unknown connection';
+	states[Connection.ETHERNET] = 'Ethernet connection';
+	states[Connection.WIFI]     = 'WiFi connection';
+	states[Connection.CELL_2G]  = 'Cell 2G connection';
+	states[Connection.CELL_3G]  = 'Cell 3G connection';
+	states[Connection.CELL_4G]  = 'Cell 4G connection';
+	states[Connection.CELL]     = 'Cell generic connection';
+	states[Connection.NONE]     = 'No network connection';
+
+	var ns_elem = document.getElementById('nsvalue');
+	ns_elem.innerHTML = states[networkState];
+    }
+
     </script>
   </head>
   <body onload="onLoad()">
 	<div id="accelerometerData">Obtaining data...</div>
-	<div id="deviceProperties">Loading device properties...</p>
+	<div id="deviceProperties">Loading device properties...</div>
+	<div id="ns">Network Status: <span id="nsvalue"></span></div>
   </body>
 </html>
