@@ -6,6 +6,27 @@
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
     <script type="text/javascript" charset="utf-8">
 
+    // device APIs are available
+    //
+    function onDeviceReady() {
+	var accElement = document.getElementById('accelerometerData');
+	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
+	loadDeviceProperties();
+	displayNetworkStatus();
+
+	document.addEventListener("backbutton", onBackKeyDown, false);
+	document.addEventListener("menubutton", onMenuKeyDown, false);
+    }
+
+    function onMenuKeyDown(){
+	alert('onMenuKeyDown');
+    }
+
+    function onBackKeyDown(){
+	alert('onBackKeyDown');
+    }
+
+
     // Run after successful transaction
     // Let's display the accelerometer data
     function onSuccess(acceleration) {
@@ -31,14 +52,6 @@
         document.addEventListener("deviceready", onDeviceReady, false);
     }
 
-    // device APIs are available
-    //
-    function onDeviceReady() {
-	var accElement = document.getElementById('accelerometerData');
-	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-	loadDeviceProperties();
-	displayNetworkStatus();
-    }
 
     function loadDeviceProperties() {
 	var element = document.getElementById('deviceProperties');
