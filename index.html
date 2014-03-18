@@ -16,6 +16,11 @@
 
 	document.addEventListener("backbutton", onBackKeyDown, false);
 	document.addEventListener("menubutton", onMenuKeyDown, false);
+	document.addEventListener("searchbutton", onSearchKeyDown, false);
+    }
+
+    function onSearchKeyDown(){
+	alert('onSearchKeyDown');
     }
 
     function onMenuKeyDown(){
