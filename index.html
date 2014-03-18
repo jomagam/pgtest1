@@ -38,13 +38,14 @@
 	      callback: function() { 
 		  	    uid = this.responseText; 
 			    alert("RESP:" + this.responseText);
+			    x$('#uiddiv').html('UID:' + uid);
 			},
 	      headers:{ 'Mobile':'true' },
 	    });
 	}
-
-	alert('UID=' + uid);
-	x$('#uiddiv').html('UID:' + uid);
+	else {
+	    x$('#uiddiv').html('UID:' + uid);
+	}
     }
 
     function onSearchKeyDown(){
