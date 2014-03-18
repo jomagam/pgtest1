@@ -37,6 +37,7 @@
 	    { async: true,
 	      callback: function() { 
 		  	    uid = this.responseText; 
+			    permanentStorage.setItem('uid', uid);
 			    alert("RESP:" + this.responseText);
 			    x$('#uiddiv').html('UID:' + uid);
 			},
