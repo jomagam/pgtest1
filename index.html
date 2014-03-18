@@ -35,7 +35,10 @@
 	if(! uid){
 	    x$('window').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/init.cgi', 
 	    { async: true,
-	      callback: function() { uid = this.responseTest},
+	      callback: function() { 
+		  	    uid = this.responseText; 
+			    alert("RESP:" + this.responseText;
+			},
 	      headers:{ 'Mobile':'true' },
 	    });
 	}
