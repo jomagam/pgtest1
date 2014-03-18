@@ -4,7 +4,10 @@
     <title>Device Ready Example</title>
 
     <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" src="xui.js"></script>
     <script type="text/javascript" charset="utf-8">
+
+    var uid;
 
     // device APIs are available
     //
@@ -14,13 +17,31 @@
 	loadDeviceProperties();
 	displayNetworkStatus();
 
-	document.addEventListener("backbutton", onBackKeyDown, false);
-	document.addEventListener("menubutton", onMenuKeyDown, false);
-	document.addEventListener("searchbutton", onSearchKeyDown, false);
+//	document.addEventListener("backbutton", onBackKeyDown, false);
+//	document.addEventListener("menubutton", onMenuKeyDown, false);
+//	document.addEventListener("searchbutton", onSearchKeyDown, false);
 
-	navigator.notification.vibrate(500);
-	setTimeout(function(){navigator.notification.beep(2)}, 2000);
-	setTimeout(function(){navigator.notification.vibrate(1000)}, 4000);
+//	navigator.notification.vibrate(500);
+
+	// requires org.apache.cordova.dialogs
+//	setTimeout(function(){navigator.notification.beep(2)}, 2000);
+//	setTimeout(function(){navigator.notification.vibrate(1000)}, 4000);
+	setUid();
+    }
+
+    function setUid(){
+	var permanentStorage = window.localStorage;
+	uid = permanentStorage.getItem('uid');
+	if(! uid){
+	    x$('window').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/init.cgi', 
+	    { async: true,
+	      callback: function() { uid = this.responseTest},
+	      headers:{ 'Mobile':'true' },
+	    });
+	}
+
+	alert('UID=' + uid);
+	x$('#uiddiv').html('UID:' + uid);
     }
 
     function onSearchKeyDown(){
@@ -97,5 +118,6 @@
 	<div id="accelerometerData">Obtaining data...</div>
 	<div id="deviceProperties">Loading device properties...</div>
 	<div id="ns">Network Status: <span id="nsvalue"></span></div>
+	<div id="uiddiv"></div>
   </body>
 </html>
