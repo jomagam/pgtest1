@@ -32,13 +32,16 @@
     function setUid(){
 	var permanentStorage = window.localStorage;
 	uid = permanentStorage.getItem('uid');
-	if(! uid){
-	    x$('window').xhr('http://ec2-50-16-134-85.compute-1.amazonaws.com/cgi-bin/init.cgi', 
+	if(!uid || 1){
+	    x$('window').xhr('http://ec2-54-234-175-140.compute-1.amazonaws.com/cgi-bin/init.cgi', 
 	    { async: true,
 	      callback: function() { 
-		  	    uid = this.responseText; 
+		  	    var resp_json = JSON.parse(this.responseText); 
+			    uid = resp_json.uid;
+			    if(resp_json.alert){
+				alert(resp_json.alert);
+			    }
 			    permanentStorage.setItem('uid', uid);
-			    alert("RESP:" + this.responseText);
 			    x$('#uiddiv').html('UID:' + uid);
 			},
 	      headers:{ 'Mobile':'true' },
