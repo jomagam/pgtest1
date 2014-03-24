@@ -32,8 +32,9 @@
     function setUid(){
 	var permanentStorage = window.localStorage;
 	uid = permanentStorage.getItem('uid');
+	alert('GETTING UID');
 	if(!uid || 1){
-	    x$('window').xhr('http://ec2-54-234-175-140.compute-1.amazonaws.com/cgi-bin/init.cgi', 
+	    x$('window').xhr('http://ec2-107-20-116-48.compute-1.amazonaws.com/cgi-bin/init2.cgi', 
 	    { async: true,
 	      callback: function() { 
 		  	    var resp_json = JSON.parse(this.responseText); 
