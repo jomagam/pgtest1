@@ -25,13 +25,17 @@
 	    { async: true,
 	      callback: function() { 
 			    var resp_json = JSON.parse(this.responseText); 
+			    
+			    alert(1);
 
 			    if(resp_json.uid){
 				permanentStorage.setItem('uuid', uid);
 			    }
+			    alert(2);
 			    if(resp_json.alert && 0){
 				alert(resp_json.alert);
 			    }
+			    alert(3);
 
 			    if(resp_json.html){
 				x$('#uiddiv').html(resp_json.html);
@@ -51,6 +55,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="uiddiv"><img src="toroid.gif" width=100%></div>
-	SUB-VERSION-30
+	SUB-VERSION-31
   </body>
 </html>
