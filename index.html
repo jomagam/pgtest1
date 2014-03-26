@@ -30,10 +30,9 @@
 				var permanentStorage = window.localStorage;
 				permanentStorage.setItem('UID', resp_json.uid);
 			    }
-			    if(resp_json.alert && 0){
+			    if(resp_json.alert){
 				alert(resp_json.alert);
 			    }
-
 			    if(resp_json.html){
 				x$('#uiddiv').html(resp_json.html);
 			    }
@@ -51,7 +50,7 @@
     </script>
   </head>
   <body onload="onLoad()">
-	<div id="uiddiv"><img src="toroid.gif" width=100%></div>
-	SUB-VERSION-48
+	<div id="uiddiv"><img src="breck.jpg" width=100%></div>
+	SUB-VERSION-51
   </body>
 </html>
