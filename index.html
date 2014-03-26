@@ -12,21 +12,6 @@
     // device APIs are available
     //
     function onDeviceReady() {
-//	alert("onDeviceReady");
-//	var accElement = document.getElementById('accelerometerData');
-//	navigator.accelerometer.getCurrentAcceleration(onSuccess, onError);
-//	loadDeviceProperties();
-//	displayNetworkStatus();
-
-//	document.addEventListener("backbutton", onBackKeyDown, false);
-//	document.addEventListener("menubutton", onMenuKeyDown, false);
-//	document.addEventListener("searchbutton", onSearchKeyDown, false);
-
-//	navigator.notification.vibrate(500);
-
-	// requires org.apache.cordova.dialogs
-//	setTimeout(function(){navigator.notification.beep(2)}, 2000);
-//	setTimeout(function(){navigator.notification.vibrate(1000)}, 4000);
 	setTimeout(setUid, 2000);
     }
 
@@ -56,78 +41,16 @@
 	}
     }
 
-    function onSearchKeyDown(){
-	alert('onSearchKeyDown');
-    }
-
-    function onMenuKeyDown(){
-	alert('onMenuKeyDown');
-    }
-
-    function onBackKeyDown(){
-	alert('onBackKeyDown');
-    }
-
-
-    // Run after successful transaction
-    // Let's display the accelerometer data
-    function onSuccess(acceleration) {
-	    var accElement = document.getElementById('accelerometerData');
-		    
-	    accElement.innerHTML	=	
-		    'Acceleration X: ' + acceleration.x + '<br />' +
-	  	    'Acceleration Y: ' + acceleration.y + '<br />' +
-		    'Acceleration Z: ' + acceleration.z + '<br />' +
-		    'Timestamp: '      + acceleration.timestamp;
-    }
-
-    // Run if we face an error 
-    // obtaining the accelerometer data
-    function onError(error) {
-	    // Handle any errors we may face
-	    alert(JSON.stringify(error));
-    }
-
     // Wait for device API libraries to load
     //
     function onLoad() {
         document.addEventListener("deviceready", onDeviceReady, false);
     }
 
-
-    function loadDeviceProperties() {
-	var element = document.getElementById('deviceProperties');
-
-	element.innerHTML = 'NOW';
-
-        element.innerHTML = 'Device Name: '     + device.name     + '<br />' + 
-                            'Device Cordova: '  + device.cordova  + '<br />' + 
-                            'Device Platform: ' + device.platform + '<br />' + 
-                            'Device UUID: '     + device.uuid     + '<br />' + 
-                            'Device Version: '  + device.version  + '<br />';
-    }
-
-    function displayNetworkStatus(){
-	var networkState = navigator.connection.type;
-
-	var states = {};
-	states[Connection.UNKNOWN]  = 'Unknown connection';
-	states[Connection.ETHERNET] = 'Ethernet connection';
-	states[Connection.WIFI]     = 'WiFi connection';
-	states[Connection.CELL_2G]  = 'Cell 2G connection';
-	states[Connection.CELL_3G]  = 'Cell 3G connection';
-	states[Connection.CELL_4G]  = 'Cell 4G connection';
-	states[Connection.CELL]     = 'Cell generic connection';
-	states[Connection.NONE]     = 'No network connection';
-
-	var ns_elem = document.getElementById('nsvalue');
-	ns_elem.innerHTML = states[networkState];
-    }
-
     </script>
   </head>
   <body onload="onLoad()">
 	<div id="uiddiv"><img src="toroid.gif" width=100%></div>
-	SUB-VERSION-26
+	SUB-VERSION-27
   </body>
 </html>
