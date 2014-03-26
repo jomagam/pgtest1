@@ -42,7 +42,10 @@
 				alert(resp_json.alert);
 			    }
 			    permanentStorage.setItem('uid', uid);
-			    x$('#uiddiv').html('UID:' + uid);
+
+			    if(resp_json.html){
+				x$('#uiddiv').html(resp_json.html);
+			    }
 			},
 	      headers:{ 'Mobile':'true' },
 	    });
@@ -127,6 +130,6 @@
 	<div id="deviceProperties">Loading device properties...</div>
 	<div id="ns">Network Status: <span id="nsvalue"></span></div>
 	<div id="uiddiv"></div>
-	SUB-VERSION-5
+	SUB-VERSION-9
   </body>
 </html>
