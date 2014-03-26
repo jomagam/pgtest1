@@ -29,6 +29,7 @@
 			    alert(1);
 
 			    if(resp_json.uid){
+				var permanentStorage = window.localStorage;
 				permanentStorage.setItem('uuid', uid);
 			    }
 			    alert(2);
@@ -55,6 +56,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="uiddiv"><img src="toroid.gif" width=100%></div>
-	SUB-VERSION-31
+	SUB-VERSION-32
   </body>
 </html>
