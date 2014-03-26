@@ -12,12 +12,13 @@
 	//
 	function onDeviceReady() {
 	    setUid();
-	    setTimeout(loadPage, 2000);
+	    loadPage();
 	}
 
 	function setUid(){
 	    var permanentStorage = window.localStorage;
 	    uid = permanentStorage.getItem('UID');
+	    alert('UID=' + uid');
 	}
 
 	function loadPage(){
@@ -52,6 +53,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="uiddiv"><img src="toroid.gif" width=100%></div>
-	SUB-VERSION-36
+	SUB-VERSION-39
   </body>
 </html>
