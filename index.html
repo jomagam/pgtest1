@@ -39,7 +39,7 @@
 	      callback: function() { 
 		  	    var resp_json = JSON.parse(this.responseText); 
 			    uid = resp_json.uid;
-			    if(resp_json.alert){
+			    if(resp_json.alert && 0){
 				alert(resp_json.alert);
 			    }
 			    permanentStorage.setItem('uid', uid);
@@ -128,6 +128,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="uiddiv"><img src="http://www.saveamericascinemas.org/wp-content/uploads/2014/01/fast-food-1024x1014.jpg" width=100%></div>
-	SUB-VERSION-22
+	SUB-VERSION-24
   </body>
 </html>
