@@ -17,7 +17,7 @@
 
 	function setUid(){
 	    var permanentStorage = window.localStorage;
-	    uid = permanentStorage.getItem('uid');
+	    uid = permanentStorage.getItem('uuid');
 	}
 
 	function loadPage(){
@@ -27,7 +27,7 @@
 			    var resp_json = JSON.parse(this.responseText); 
 
 			    if(resp_json.uid){
-				permanentStorage.setItem('uid', uid);
+				permanentStorage.setItem('uuid', uid);
 			    }
 			    if(resp_json.alert && 0){
 				alert(resp_json.alert);
@@ -51,6 +51,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="uiddiv"><img src="toroid.gif" width=100%></div>
-	SUB-VERSION-29
+	SUB-VERSION-30
   </body>
 </html>
