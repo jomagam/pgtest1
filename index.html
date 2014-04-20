@@ -21,15 +21,10 @@
 	}
 
 	function loadPage(){
-	    var url_args;
-	    if(uid){
-		url_args = "uid=" + uid;
+	    if(!uid){
+		uid = 'youtellme';
 	    }
-	    else {
-		var uuid = device.uuid;
-		url_args = "uid=youtellme&uuid=" + uuid;
-	    }
-	    x$('window').xhr('http://thegame.guineapigtech.com/update?' + url_args, 
+	    x$('window').xhr('http://thegame.guineapigtech.com/update?uuid=' + uuid + '&uid=' + uid, 
 	    { async: true,
 	      callback: function() { 
 			    var resp_json = JSON.parse(this.responseText); 
@@ -57,6 +52,6 @@
   </head>
   <body onload="onLoad()">
 	<div id="ajaxdiv" style="width:100%; background-color: #fff"></div>
-	SUB-VERSION-69
+	SUB-VERSION-71
   </body>
 </html>
