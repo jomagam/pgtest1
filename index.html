@@ -21,6 +21,8 @@
 	}
 
 	function loadPage(){
+	    var uuid = device.uuid;
+	    x$('#uuiddiv').html('UUID = ' + uuid);
 	    x$('window').xhr('http://thegame.guineapigtech.com/update?uid=' + uid, 
 	    { async: true,
 	      callback: function() { 
@@ -34,7 +36,7 @@
 				alert(resp_json.alert);
 			    }
 			    if(resp_json.html){
-				x$('#uiddiv').html(resp_json.html);
+				x$('#ajaxdiv').html(resp_json.html);
 			    }
 			},
 	      headers:{ 'Mobile':'true' },
@@ -50,7 +52,8 @@
     </script>
   </head>
   <body onload="onLoad()">
-	<div id="uiddiv" style="width:100%; background-color: #fff"></div>
-	SUB-VERSION-60
+	<div id="ajaxdiv" style="width:100%; background-color: #fff"></div>
+	<div id="uuiddiv></div>
+	SUB-VERSION-62
   </body>
 </html>
